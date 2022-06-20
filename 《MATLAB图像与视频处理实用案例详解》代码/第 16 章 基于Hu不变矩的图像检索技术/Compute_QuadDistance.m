@@ -1,0 +1,10 @@
+function value = Compute_QuadDistance(X1, map1, X2, map2)
+[count1, y1] = imhist(X1, map1);
+[count2, y2] = imhist(X2, map2);
+q = count1 - count2;
+s = abs(q);
+A = Compute_SimMat(map1, map2);
+d = s.'*A*s;
+d = d^1/2;
+d = d / 1e8;
+value = d;
